@@ -1,0 +1,36 @@
+{% extends 'layout.html' %} {% block title %} Home {% endblock %} {% block body
+%}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="container">
+    <h1 class="text-center">Selamat Datang di Ringkesan</h1>
+    <p class="text-center">masukan teks dan kami akan merigkas teks yang anda masukan</p>
+  <form class="row g-3" method="post" action="/summary" >
+    <div class="mb-5">
+      <label for="exampleFormControlTextarea1" class="form-label"
+        >Masukan Kalimat</label
+      >
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="5"
+        name="text_summary"
+        value="{{data['asli']}}"
+      ></textarea>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary mb-3 mt-3">Ringkas</button>
+  </form>
+</div>
+<div class="container">
+    <h3>Text asli</h3>
+    <p>{{data['asli']}}</p>
+    <br/>
+
+    <h3>Hasil Ringkasan</h3>
+    <p>{{data['summary']}}</p>
+
+    <br/>
+    <p>Jumlah kata : {{data['asli']|length}}</p>
+    <p>Jumlah kata setelah diringkas : {{data['summary']|length}}</p>
+</div>
+{% endblock %}
